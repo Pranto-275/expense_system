@@ -10,12 +10,32 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $password = $_POST['password'];
+    $cpassword = $_POST['cpassword'];
 
     // echo $fullname.$email.$phone.$password;
 
     if(empty($fullname) || empty($email) || empty($phone) || empty($password)){
       $message = "Field Should Be Field!!";
 
+    }else if(!preg_match("/^[a-zA-Z-' ]*$/",$fullname)){
+      $message = "Only Letters will be Accepted";
+
+    }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+      $message = "Invalid Email";
+
+    }else if($password != $cpassword){
+      $message = "Password Mismatch!";
+    }else{
+      $user_unique_id = rand(10000,99999);
+      $password = password_hash($password,PASSWORD_DEFAULT);
+
+      $register_user_query = "INSERT INTO users (user_id,full_name,email,password) VALUES ('$user_unique_id','$fullname','$email','$password')";
+      $register_user_query_reuslt = mysqli_query($connection,$register_user_query);
+      if ($register_user_query_reuslt == 'true'){
+        $message = "Register User Successfully";
+      }else{
+        $message = "Something Went Wrong!!";
+      }
     }
 
   }
@@ -40,8 +60,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   <div id="loginhome">
     <div class="login">
       <h3 class="py-4">Daily Expense Tracker</h3>
-      <h6 class="text-center"><?php echo $message; ?></h6>
+
         <div class="box">
+          <h6 class="text-center text-danger"><?php echo $message; ?></h6>
           <form action="register.php" method="POST">
             <div class="mb-3">
               <label class="form-label">Full name</label>
@@ -68,7 +89,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
               <input type="password" class="form-control" name="cpassword">
             </div>
 
-            <button type="submit" class="btn w-100" style="background-color: #4942E4;" name="submit"><b>Submit</b></button>
+            <button type="submit" class="btn w-100" style="background-color: #4942E4;" name="submit"><b style="color: white">Submit</b></button>
 
             <div style="text-align: center;color: black;">
               <a style="color:black;" href="login.php">Have an Account...</a>
