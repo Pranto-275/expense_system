@@ -54,12 +54,12 @@
                         </li>
 
                         <li>
-                            <a href="#" class="nav-link px-0 align-middle">
+                            <a href="profile.php" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline text-dark"><i
                                         class="fa-solid fa-user fa-xl"></i> Profile</span></a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link px-0 align-middle">
+                            <a href="change_password.php" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline text-dark"><i
                                         class="fa-solid fa-lock fa-xl"></i> Change Password</span></a>
                         </li>
