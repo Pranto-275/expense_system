@@ -41,12 +41,12 @@
                                         class="fa-regular fa-calendar-days fa-xl"></i> Expense Report</span></a>
                             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-dark">&nbsp
+                                    <a href="day_wise_expense_search.php" class="nav-link px-0"> <span class="d-none d-sm-inline text-dark">&nbsp
                                             &nbsp &nbsp <i class="fa-sharp fa-solid fa-sun fa-xl"></i> DayWise
                                             Expenses</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-dark">&nbsp
+                                    <a href="monthly_wise_expense_search.php" class="nav-link px-0"> <span class="d-none d-sm-inline text-dark">&nbsp
                                             &nbsp &nbsp <i class="fa-sharp fa-solid fa-sun fa-xl"></i> Monthly
                                             Expenses</span></a>
                                 </li>
