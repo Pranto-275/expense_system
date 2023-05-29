@@ -5,7 +5,8 @@
                         <span class="fs-5 d-none d-sm-inline text-dark">
                             <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30"
                                 class="rounded-circle">
-                            <span style="padding: 10px;font-weight: bold;">Adam Wahid</span> <br> <span style="font-size: 15px;"> <span
+                            <span style="padding: 10px;font-weight: bold;"><?php echo $user_name;?></span> <br> <span style="font-size: 15px;"> <span
+
                                     style="color: #26de81;"><i class="fa-solid fa-circle fa-xs"></i></span>
                                 Online</span></span>
 
@@ -24,12 +25,12 @@
                                         class="fa-solid fa-money-bill-wave fa-xl"></i> Expenses</span> </a>
                             <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline  text-dark">&nbsp
+                                    <a href="add_expense.php" class="nav-link px-0"> <span class="d-none d-sm-inline  text-dark">&nbsp
                                             &nbsp &nbsp <i class="fa-solid fa-cash-register fa-lg"></i> Add
                                             Expenes</span> </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-dark">&nbsp
+                                    <a href="manage_expense.php" class="nav-link px-0"> <span class="d-none d-sm-inline text-dark">&nbsp
                                             &nbsp &nbsp <i class="fa-solid fa-list-check fa-xl"></i> Manage
                                             Expenses</span> </a>
                                 </li>

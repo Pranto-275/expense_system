@@ -3,6 +3,9 @@ global $connection;
 include 'connection.php';
 session_start();
 
+$user_name =  $_SESSION['full_name'];
+$user_id = $_SESSION['user_id'];
+
 ?>
 <!doctype html>
 <html lang="en">

@@ -4,6 +4,8 @@ include 'connection.php';
 $message = '';
 
 
+
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
   if(isset($_POST['submit'])){
     $fullname = $_POST['fullname'];
@@ -12,10 +14,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $password = $_POST['password'];
     $cpassword = $_POST['cpassword'];
 
-    // echo $fullname.$email.$phone.$password;
+
 
     if(empty($fullname) || empty($email) || empty($phone) || empty($password)){
-      $message = "Field Should Be Field!!";
+      $message = "Field Should Be Filled!!";
 
     }else if(!preg_match("/^[a-zA-Z-' ]*$/",$fullname)){
       $message = "Only Letters will be Accepted";
