@@ -63,7 +63,7 @@
                                         class="fa-solid fa-lock fa-xl"></i> Change Password</span></a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link px-0 align-middle">
+                            <a href="logout.php" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline text-dark"><i
                                         class="fa-solid fa-right-from-bracket fa-xl"></i> Logout</span></a>
                         </li>

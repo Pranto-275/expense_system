@@ -1,3 +1,9 @@
+<?php
+global $connection;
+include 'connection.php';
+session_start();
+
+?>
 <!doctype html>
 <html lang="en">
 
