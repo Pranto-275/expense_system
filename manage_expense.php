@@ -3,8 +3,14 @@ global $connection;
 include 'connection.php';
 session_start();
 
-$user_name =  $_SESSION['full_name'];
+$user_name = $_SESSION['full_name'];
 $user_id = $_SESSION['user_id'];
+
+
+$show_expense_query = "SELECT * FROM expense WHERE user_id = '$user_id'";
+$show_expense_query_result = mysqli_query($connection, $show_expense_query);
+
+
 
 ?>
 <!doctype html>
@@ -23,14 +29,14 @@ $user_id = $_SESSION['user_id'];
 
 <div>
 
-    <?php include 'navbar.php';?>
+    <?php include 'navbar.php'; ?>
 
 </div>
 
 <div class="container-fluid">
     <div class="row flex-nowrap">
 
-        <?php include 'sidebar.php';?>
+        <?php include 'sidebar.php'; ?>
 
         <div class="col py-3">
 
@@ -50,40 +56,29 @@ $user_id = $_SESSION['user_id'];
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <div class="d-inline">
+                        <?php
+                        $i = 0;
+                        while ($row = mysqli_fetch_assoc($show_expense_query_result)) { ?>
+                            <tr>
+                                <td><?php echo ++$i;?></td>
+                                <td><?php echo $row['item'];?></td>
+                                <td><?php  echo $row['cost'];?></td>
+                                <td><?php  echo $row['expense_date'];?></td>
+                                <td>
+                                    <div class="d-inline">
                                         <span>
-                                            <button class="btn btn-primary">Edit</button>
+                                            <a href="update_expense.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Edit</a>
                                         </span>
-                                    <span>
-                                            <button class="btn btn-danger">Delete</button>
-                                        </span>
-                                </div>
-                            </td>
-                        </tr>
-
-
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <div class="d-inline">
                                         <span>
-                                            <button class="btn btn-primary">Edit</button>
+                                            <a href="delete_item.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">Delete</a>
                                         </span>
-                                    <span>
-                                            <button class="btn btn-danger">Delete</button>
-                                        </span>
-                                </div>
-                            </td>
-                        </tr>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+
                         </tbody>
                     </table>
 
