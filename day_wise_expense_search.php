@@ -2,9 +2,11 @@
 global $connection;
 include 'connection.php';
 session_start();
+$message = '';
 
 $user_name =  $_SESSION['full_name'];
 $user_id = $_SESSION['user_id'];
+
 
 ?>
 <!doctype html>
@@ -39,17 +41,17 @@ $user_id = $_SESSION['user_id'];
                 <h3>DateWise Expenses (Day)</h3>
 
                 <div class="box">
-                    <form>
+                    <form action="datewise_report.php" method="POST">
                         <div class="mb-3">
                             <label class="form-label">From Date</label>
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" name="from_date">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">To Date</label>
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" name="to_date">
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button name="search" type="submit" class="btn btn-primary">Search</button>
                     </form>
                 </div>
 
